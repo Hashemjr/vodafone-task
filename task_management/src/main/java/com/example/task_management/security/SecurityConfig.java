@@ -16,16 +16,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // Disable CSRF protection
-            .cors(withDefaults())  // Enable CORS with the default settings
+            .csrf(csrf -> csrf.disable()) 
+            .cors(withDefaults())  
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()  // Allow public access to /api/auth/**
-                .requestMatchers("/").permitAll()  // Allow access to the root URL
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()  // Allow preflight (OPTIONS) requests for CORS
-                .anyRequest().authenticated()  // Secure all other requests
+                .requestMatchers("/api/auth/**").permitAll()  
+                .requestMatchers("/").permitAll()  
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()  
+                .anyRequest().authenticated() 
             )
             .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)  // Set stateless session management
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) 
             );
         
         return http.build();

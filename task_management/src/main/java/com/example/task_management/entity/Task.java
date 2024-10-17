@@ -18,10 +18,9 @@ public class Task {
     private String status;
     private LocalDate dueDate;
 
-    // No-argument constructor (required by JPA)
     public Task() {}
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

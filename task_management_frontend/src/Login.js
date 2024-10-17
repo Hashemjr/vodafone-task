@@ -12,13 +12,13 @@ const Login = () => {
     axios.post('/api/auth/login', { email, password })
       .then(response => {
         localStorage.setItem('token', response.data.token);
-        navigate('/tasks');  // Navigate to the tasks page on successful login
+        navigate('/tasks'); 
       })
       .catch(error => console.error('There was an error!', error));
   };
 
   const handleRegisterRedirect = () => {
-    navigate('/register');  // Navigate to the register page
+    navigate('/register');  
   };
 
   return (

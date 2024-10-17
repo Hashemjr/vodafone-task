@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Register = () => {
-  console.log("Component Rendered");  // Check if the component renders
+  console.log("Component Rendered"); 
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', { email, password });  // Log to check form submission
+    console.log('Form submitted:', { email, password });
     axios.post('http://localhost:8080/api/auth/register', { email, password })
       .then(response => alert('Registration successful'))
       .catch(error => console.error('There was an error!', error));

@@ -1,5 +1,3 @@
-// src/components/TaskList.js
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -24,7 +22,7 @@ const TaskList = () => {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(() => {
-      setTasks(tasks.filter(task => task.id !== id));  // Remove task from the list
+      setTasks(tasks.filter(task => task.id !== id));  
     })
     .catch(error => {
       console.error('There was an error deleting the task!', error);

@@ -33,6 +33,6 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         User user = userService.validateUser(request.getEmail(), request.getPassword());
         String token = jwtUtil.generateToken(user);  // Generate token
-        return ResponseEntity.ok(new LoginResponse(token));  // Return LoginResponse with the token
+        return ResponseEntity.ok(new LoginResponse(token));  
     }
 }

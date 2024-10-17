@@ -1,12 +1,10 @@
-// src/components/EditTask.js
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const EditTask = () => {
-  const { id } = useParams();  // Get task ID from URL
-  const navigate = useNavigate();  // For redirecting after saving
+  const { id } = useParams(); 
+  const navigate = useNavigate(); 
   const [task, setTask] = useState({
     title: '',
     description: '',
@@ -15,7 +13,7 @@ const EditTask = () => {
   });
 
   useEffect(() => {
-    // Fetch the task by ID
+    
     axios.get(`/api/tasks/${id}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
@@ -37,7 +35,7 @@ const EditTask = () => {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(() => {
-      navigate('/tasks');  // Redirect to task list after saving
+      navigate('/tasks');  
     })
     .catch(error => {
       console.error('There was an error updating the task!', error);
